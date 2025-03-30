@@ -1,0 +1,123 @@
+/* Conteneur principal des catégories */
+#categorySelection {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(145deg, #5994cf, #528ec9);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titre des catégories */
+  #categorySelection h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  #categorySelection h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #3498db;
+    margin: 0.5rem auto;
+    border-radius: 2px;
+  }
+  
+  /* Liste des catégories */
+  #categoryList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  /* Style des catégories (version boutons modernes) */
+  .category-item {
+    padding: 1.25rem;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .category-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-color: #3498db;
+  }
+  
+  .category-item:active {
+    transform: translateY(0);
+  }
+  
+  /* Style de la catégorie sélectionnée */
+  .category-item.selected {
+    background: #3498db;
+    color: white;
+    border-color: #2980b9;
+  }
+  
+  /* Version alternative avec style de tags */
+  .category-item.tag-style {
+    background: #f0f0f0;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+  }
+  
+  .category-item.tag-style:hover {
+    transform: scale(1.05);
+  }
+  
+  .category-item.tag-style.selected {
+    background: #e74c3c;
+    color: white;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #categoryList {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .category-item {
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  }
+  /* ===== ANIMATIONS ET INTERACTIONS ===== */
+#categorySelection {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.category-button {
+    transition: 
+        transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.category-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+.category-button.selected {
+    background: #3498db;
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translateY(-3px) scale(1.03); }
+    50% { transform: translateY(-3px) scale(1.05); }
+}

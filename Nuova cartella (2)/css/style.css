@@ -1,0 +1,747 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #484757;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #16213e;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.search-container {
+    display: flex;
+    width: 400px;
+}
+
+#search {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#searchButton {
+    padding: 0 20px;
+    background: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#searchButton:hover {
+    background: #0097a7;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-link i {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.nav-link:hover {
+    color: #00bcd4;
+}
+
+.user-menu {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.user-menu:hover {
+    transform: scale(1.1);
+    color: #00bcd4;
+}
+
+/* ===== SLIDER ===== */
+#featuredAnime {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#sliderContainer {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-item {
+    min-width: 25%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.slider-item:hover {
+    transform: translateY(-5px);
+}
+
+.slider-item img {
+    width: 100%;
+    border-radius: 8px;
+    height: 250px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider-item h3 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.slider-badge {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(22, 33, 62, 0.9);
+    color: #00bcd4;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(22, 33, 62, 0.7);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.slider-button:hover {
+    background: #00bcd4;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#prevSlider {
+    left: 20px;
+}
+
+#nextSlider {
+    right: 20px;
+}
+
+/* ===== ANIME LIST ===== */
+#animeList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.anime-card {
+    background-color: #16213e;
+    color: white;
+    border-radius: 10px;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.anime-card:hover {
+    transform: scale(1.05);
+}
+
+.anime-card img {
+    width: 100%;
+    border-radius: 8px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.anime-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.anime-score {
+    background: #00bcd4;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+/* ===== PAGINATION ===== */
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+#pagination button {
+    background-color: #16213e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#pagination button:hover {
+    background: #00bcd4;
+    transform: scale(1.05);
+}
+
+#pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#pagination #currentPage {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+/* ===== LOADING ===== */
+#loadingMessage {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#loadingMessage l-quantum {
+    display: inline-block;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .search-container {
+        width: 300px;
+    }
+    
+    .navbar-menu {
+        gap: 1rem;
+    }
+    
+    .slider-item {
+        min-width: 33.33%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+    
+    .navbar-search {
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    .slider-item {
+        min-width: 50%;
+    }
+    
+    .slider-item img {
+        height: 180px;
+    }
+    
+    .slider-button {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .anime-card {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-item {
+        min-width: 100%;
+    }
+    
+    .nav-link span {
+        display: none;
+    }
+    
+    .nav-link i {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+}
+/* === INTERACTIONS === */
+/* Survol des cartes */
+.anime-card {
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.anime-card:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons */
+button, .nav-link {
+    transition: 
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+/* === INTERACTIONS === */
+/* Survol des cartes */
+.anime-card {
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.anime-card:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons */
+button, .nav-link {
+    transition: 
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+/* Slider */
+.slider-item {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Effet "mise en avant" au survol */
+.slider-item:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+/* Loader personnalisé */
+#loadingMessage l-quantum {
+    --lds-quantum-size: 45px;
+    --lds-quantum-color: #00bcd4;
+}
+
+.loading-text {
+    display: block;
+    margin-top: 10px;
+    color: #16213e;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+/* Feedback de recherche */
+#search:focus {
+    outline: 2px solid #00bcd4;
+    box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.2);
+}
+
+/* Transition douce pour les pages */
+main {
+    view-transition-name: main-content;
+    animation: fadeIn 0.4s;
+}
+
+::view-transition-old(main-content),
+::view-transition-new(main-content) {
+    animation: fadeIn 0.4s;
+}
+@media (max-width: 768px) {
+    /* Désactiver certaines animations pour les performances */
+    .anime-card, .slider-item {
+        animation: none;
+        transition: none;
+    }
+    
+    /* Garder les feedbacks tactiles */
+    button:active {
+        transform: scale(0.95);
+    }
+}
+.animate-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+.anime-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centre les cartes horizontalement */
+    gap: 20px; /* Espace entre les cartes */
+    padding: 20px;
+    max-width: 1200px; /* Largeur maximale pour éviter l'étalement */
+    margin: 0 auto; /* Centre le conteneur lui-même */
+}
+.anime-card h3 {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.anime-card p {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #00bcd4;
+    margin: 20px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* ===== ANIME CARD 3D EFFECT ===== */
+.anime-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: perspective(1000px) rotateY(0deg) translateZ(0);
+    cursor: pointer;
+}
+
+.anime-card::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 10px;
+    right: 10px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    filter: blur(15px);
+    transform: translateZ(-20px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+}
+
+.anime-card:hover {
+    transform: perspective(1000px) rotateY(5deg) translateY(-10px) translateZ(20px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+}
+
+.anime-card:hover::before {
+    transform: translateZ(-30px);
+    filter: blur(25px);
+    opacity: 0.8;
+}
+
+.anime-card img {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    backface-visibility: hidden;
+}
+
+.anime-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Effet de profondeur pour le score */
+.anime-score {
+    position: relative;
+    z-index: 2;
+    transform: translateZ(20px);
+    transition: all 0.3s ease;
+}
+
+.anime-card:hover .anime-score {
+    transform: translateZ(30px);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+}
+/* ===== TOP SEASON CARDS ===== */
+.season-top {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 20px;
+}
+
+.season-top h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #00bcd4;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.season-card {
+    position: relative;
+    min-width: 280px;
+    height: 400px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+                5px 5px 15px rgba(0, 0, 0, 0.3),
+                -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: 0.5s;
+    background: #16213e;
+}
+
+.season-card .box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #2a2b2f;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+    flex-direction: column;
+}
+
+.season-card .box:hover {
+    transform: translateY(-20px);
+}
+
+.season-card .box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.season-card .content {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.season-card .content h2 {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.season-card .content h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    z-index: 1;
+    transition: 0.5s;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.season-card .content p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    transition: 0.5s;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.season-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #00bcd4;
+    margin-bottom: 15px;
+}
+
+.season-card .score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #00bcd4;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.season-card .details-btn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #00bcd4;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.season-card .details-btn:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .season-card {
+        min-width: 250px;
+        height: 380px;
+    }
+    
+    .season-card .content h2 {
+        font-size: 5rem;
+    }
+}

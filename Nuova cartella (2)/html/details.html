@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de l'Anime</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body class="details-page">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="/" class="logo">
+                    <img src="/image/logo/5899d8cc-33f8-472e-891a-4df2ae8d9659.png" alt="AnimeFlix">
+                </a>
+            </div>
+            
+            <div class="navbar-search">
+                <div class="search-container">
+                    <input type="text" id="search" placeholder="Rechercher un anime...">
+                    <button id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="/html/categories.html" class="nav-link">
+                    <i class="fas fa-tags"></i>
+                    <span>Catégories</span>
+                </a>
+                <a href="/html/programme.html" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Programme</span>
+                </a>
+               
+            </div>
+            
+            
+        </nav>
+    </header>
+    <main>
+        <!-- Message de chargement -->
+        <div id="loadingMessage" style="display: none; text-align: center; margin: 2rem;">
+            <l-quantum size="45" speed="1.75" color="black"></l-quantum>
+        </div>
+        
+
+        <!-- Message d'erreur -->
+        <div id="errorMessage" style="display: none; color: red; margin: 1rem;"></div>
+
+        <!-- Section des détails de l'anime -->
+        <section id="animeDetails"></section>
+        <!-- Section pour le trailer -->
+        <section id="trailerSection">
+            <h2>Bande-Annonce</h2>
+            <div id="trailerContainer">
+                <!-- Le trailer sera chargé ici -->
+                <p id="noTrailerMessage" style="display: none;">Aucune bande-annonce disponible.</p>
+            </div>
+        </section>
+
+        <!-- Section des liens de streaming -->
+        <section id="streamingLinks">
+            <h2>Épisodes et Streaming</h2>
+            <div id="episodesList"></div>
+            <div id="externalLinks"></div>
+        </section>
+    </main>
+
+    <script src="/js/details.js"></script>
+    <script type="module">
+        import { quantum } from 'https://cdn.jsdelivr.net/npm/ldrs/+esm';
+        quantum.register();
+    </script>
+    
+</body>
+</html>
